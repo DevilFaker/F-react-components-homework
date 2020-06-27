@@ -28,7 +28,7 @@ class Chat extends Component {
   }
 
   customerMessage = (message) => {
-    const replyMessage = answersData.find((answer) => answer.tags.includes(message));
+    const replyMessage = this.findTags(answersData, message);
 
     if (replyMessage !== undefined) {
       const tempMessage = this.state.messages.concat({ text: message, role: 'CUSTOMER' });
@@ -48,6 +48,20 @@ class Chat extends Component {
         return { messages: temp };
       });
     }
+  };
+
+  findTags = (resource, message) => {
+    let temp;
+
+    resource.forEach((x) => {
+      x.tags.forEach((y) => {
+        if (message.includes(y)) {
+          temp = x.text;
+        }
+      });
+    });
+
+    return temp === undefined ? undefined : { text: temp, role: 'ROBOT' };
   };
 
   render() {
