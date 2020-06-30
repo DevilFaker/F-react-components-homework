@@ -3,6 +3,7 @@ import './Welcome.scss';
 import WelcomeHeader from './WelcomeHeader/WelcomeHeader';
 import WelcomeBackground from './WelcomeBackground/WelcomeBackground';
 import shopData from '../data/shop.json';
+import WelcomeNav from './WelcomeNav/WelcomeNav';
 
 class Welcome extends Component {
   constructor(props, context) {
@@ -12,15 +13,13 @@ class Welcome extends Component {
     };
   }
 
-  componentDidMount() {}
-
   render() {
     const { shop } = this.state;
     return (
       <main className="Welcome">
         <WelcomeHeader />
         <WelcomeBackground shop={shop} />
-        {/* <WelcomeNav /> */}
+        <WelcomeNav />
       </main>
     );
   }

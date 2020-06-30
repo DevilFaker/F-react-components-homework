@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ChatHeader.scss';
+import { Link } from 'react-router-dom';
 
 class ChatHeader extends Component {
   render() {
@@ -9,6 +10,10 @@ class ChatHeader extends Component {
     };
     return (
       <header className="ChatHeader">
+        <div className="back">
+          <Link to="/welcome">&lt;</Link>
+        </div>
+
         <div className="logo" style={logoStyle} />
         <h1>{shop.name}</h1>
       </header>
